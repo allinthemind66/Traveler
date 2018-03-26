@@ -321,3 +321,531 @@ Migrating to AddLocationToTripsTable (20180326203657)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 20:41:16.951991"], ["updated_at", "2018-03-26 20:41:16.951991"]]
   [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1132334108769339420)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddLocationToTripsTable (20180326203657)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.1ms)[0m  [1m[35mALTER TABLE "trips" ADD "city" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "trips" ADD "state" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "trips" ADD "country" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326203657"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1132334108769339420)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:06:46.933768"], ["updated_at", "2018-03-26 21:06:46.933768"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:06:46.938776"], ["updated_at", "2018-03-26 21:06:46.938776"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:08:14.715519"], ["updated_at", "2018-03-26 21:08:14.715519"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:08:14.720182"], ["updated_at", "2018-03-26 21:08:14.720182"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "trips" ("name", "user_id", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "My New York Trip"], ["user_id", 1], ["created_at", "2018-03-26 21:08:14.747446"], ["updated_at", "2018-03-26 21:08:14.747446"], ["city", "New York"], ["state", "New York"], ["country", "USA"]]
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (8650.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_development"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (216.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_development"[0m
+  [1m[35m (216.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_test"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1132334108769339420)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20180326190152)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326190152"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTrips (20180326193854)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "user_id" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326193854"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20180326194019)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "name" character varying, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326194019"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddLocationToTripsTable (20180326203657)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "trips" ADD "city" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "trips" ADD "state" character varying[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "trips" ADD "country" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180326203657"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-26 21:18:27.581998"], ["updated_at", "2018-03-26 21:18:27.581998"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1132334108769339420)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:18:33.923602"], ["updated_at", "2018-03-26 21:18:33.923602"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:18:33.928542"], ["updated_at", "2018-03-26 21:18:33.928542"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "My New York Trip"], ["created_at", "2018-03-26 21:18:33.957087"], ["updated_at", "2018-03-26 21:18:33.957087"], ["city", "New York"], ["state", "New York"], ["country", "USA"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:18:49 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.32ms)
+Completed 200 OK in 31ms (Views: 16.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-03-26 17:19:56 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ricknilon/.rvm/gems/ruby-2.3.3/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ricknilon/.rvm/gems/ruby-2.3.3/gems/railties-5.1.5/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:20:03 -0400
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.23ms)
+Completed 200 OK in 16ms (Views: 7.3ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:24:04 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"my citys a", "state"=>"sucker your citys a", "country"=>"my citys a", "trip"=>{"city"=>"my citys a", "state"=>"sucker your citys a", "country"=>"my citys a"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:24:04.991807"], ["updated_at", "2018-03-26 21:24:04.991807"], ["city", "my citys a"], ["state", "sucker your citys a"], ["country", "my citys a"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 25ms (ActiveRecord: 6.6ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:24:06 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"my citys a", "state"=>"sucker your citys a", "country"=>"my citys a", "trip"=>{"city"=>"my citys a", "state"=>"sucker your citys a", "country"=>"my citys a"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:24:06.595931"], ["updated_at", "2018-03-26 21:24:06.595931"], ["city", "my citys a"], ["state", "sucker your citys a"], ["country", "my citys a"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 8ms (ActiveRecord: 3.7ms)
+
+
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:24:27 -0400
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.55ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:25:23 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"Tokyo", "state"=>"", "country"=>"Tokyo", "trip"=>{"city"=>"Tokyo", "state"=>"", "country"=>"Tokyo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:25:23.522466"], ["updated_at", "2018-03-26 21:25:23.522466"], ["city", "Tokyo"], ["state", ""], ["country", "Tokyo"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 10ms (ActiveRecord: 6.7ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:25:55 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"Tokyo", "state"=>"NY", "country"=>"Tokyo", "trip"=>{"city"=>"Tokyo", "state"=>"NY", "country"=>"Tokyo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:25:55.087449"], ["updated_at", "2018-03-26 21:25:55.087449"], ["city", "Tokyo"], ["state", "NY"], ["country", "Tokyo"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:25:58 -0400
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (1.07ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:27:19 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"dads", "state"=>"", "country"=>"dads", "trip"=>{"city"=>"dads", "state"=>"", "country"=>"dads"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:27:19.427382"], ["updated_at", "2018-03-26 21:27:19.427382"], ["city", "dads"], ["state", ""], ["country", "dads"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 9ms (ActiveRecord: 6.4ms)
+
+
+Started POST "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:27:29 -0400
+Processing by Api::V1::TripsController#create as */*
+  Parameters: {"city"=>"tokyo", "state"=>"japan", "country"=>"tokyo", "trip"=>{"city"=>"tokyo", "state"=>"japan", "country"=>"tokyo"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2018-03-26 21:27:29.509273"], ["updated_at", "2018-03-26 21:27:29.509273"], ["city", "tokyo"], ["state", "japan"], ["country", "tokyo"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:27:35 -0400
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (1.57ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:32:49 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (1.94ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:34:41 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:18:33", updated_at: "2018-03-26 21:18:33", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (2.0ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (6863.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_development"[0m
+  [1m[35m (215.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_test"[0m
+  [1m[35m (351.6ms)[0m  [1m[35mCREATE DATABASE "Traveler_development" ENCODING = 'unicode'[0m
+  [1m[35m (437.1ms)[0m  [1m[35mCREATE DATABASE "Traveler_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "name" character varying, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "user_id" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "city" character varying, "state" character varying, "country" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180326203657)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180326190152),
+(20180326193854),
+(20180326194019);
+
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-26 21:35:56.633531"], ["updated_at", "2018-03-26 21:35:56.633531"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "name" character varying, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips" CASCADE[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "user_id" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "city" character varying, "state" character varying, "country" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180326203657)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180326190152),
+(20180326193854),
+(20180326194019);
+
+[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-26 21:35:56.711395"], ["updated_at", "2018-03-26 21:35:56.711395"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-03-26 21:35:56.715997"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:35:56.759012"], ["updated_at", "2018-03-26 21:35:56.759012"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:35:56.762371"], ["updated_at", "2018-03-26 21:35:56.762371"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "My New York Trip"], ["created_at", "2018-03-26 21:35:56.788132"], ["updated_at", "2018-03-26 21:35:56.788132"], ["city", "New York"], ["state", "New York"], ["country", "USA"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:36:22 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.38ms)
+Completed 200 OK in 37ms (Views: 21.5ms | ActiveRecord: 7.3ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:37:47.481233"], ["updated_at", "2018-03-26 21:37:47.481233"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:37:47.485836"], ["updated_at", "2018-03-26 21:37:47.485836"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "My New York Trip"], ["created_at", "2018-03-26 21:37:47.514275"], ["updated_at", "2018-03-26 21:37:47.514275"], ["city", "New York"], ["state", "New York"], ["country", "USA"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Japan '16'"], ["created_at", "2018-03-26 21:37:47.517884"], ["updated_at", "2018-03-26 21:37:47.517884"], ["city", "Tokyo"], ["state", ""], ["country", "Japan"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:37:48 -0400
+Processing by Api::V1::TripsController#index as HTML
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.68ms)
+Completed 200 OK in 17ms (Views: 8.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:37:53 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.73ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:40:40 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.78ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:40:41 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.96ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:41:13 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (1.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:41:27 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:41:28 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.85ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:41:49 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.64ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:43:03 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.94ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:44:41 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.86ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:45:03 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.74ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:46:49 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (9.37ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:46:51 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:35:56", updated_at: "2018-03-26 21:35:56", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.51ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (7061.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_development"[0m
+  [1m[35m (219.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "Traveler_test"[0m
+  [1m[35m (460.6ms)[0m  [1m[35mCREATE DATABASE "Traveler_development" ENCODING = 'unicode'[0m
+  [1m[35m (433.6ms)[0m  [1m[35mCREATE DATABASE "Traveler_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "name" character varying, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "user_id" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "city" character varying, "state" character varying, "country" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180326203657)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180326190152),
+(20180326193854),
+(20180326194019);
+
+[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-26 21:47:27.320240"], ["updated_at", "2018-03-26 21:47:27.320240"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "name" character varying, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "trips" CASCADE[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "user_id" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "city" character varying, "state" character varying, "country" character varying)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180326203657)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180326190152),
+(20180326193854),
+(20180326194019);
+
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-03-26 21:47:27.405697"], ["updated_at", "2018-03-26 21:47:27.405697"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2018-03-26 21:47:27.408494"], ["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Rick"], ["created_at", "2018-03-26 21:47:27.451921"], ["updated_at", "2018-03-26 21:47:27.451921"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Scott"], ["created_at", "2018-03-26 21:47:27.454653"], ["updated_at", "2018-03-26 21:47:27.454653"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "My New York Trip"], ["created_at", "2018-03-26 21:47:27.481970"], ["updated_at", "2018-03-26 21:47:27.481970"], ["city", "New York"], ["state", "New York"], ["country", "USA"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Japan '18'"], ["created_at", "2018-03-26 21:47:27.488079"], ["updated_at", "2018-03-26 21:47:27.488079"], ["city", "Tokyo"], ["state", ""], ["country", "Japan"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("name", "created_at", "updated_at", "city", "state", "country") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ohio Trip"], ["created_at", "2018-03-26 21:47:27.492908"], ["updated_at", "2018-03-26 21:47:27.492908"], ["city", "Columbus"], ["state", "OHIO"], ["country", "USA"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:47:35 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:47:27", updated_at: "2018-03-26 21:47:27", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.66ms)
+Completed 200 OK in 30ms (Views: 17.1ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:49:21 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:47:27", updated_at: "2018-03-26 21:47:27", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.71ms)
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:49:25 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:47:27", updated_at: "2018-03-26 21:47:27", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.61ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/trips" for 127.0.0.1 at 2018-03-26 17:49:43 -0400
+Processing by Api::V1::TripsController#index as */*
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+No serializer found for resource: #<Trip id: 1, name: "My New York Trip", user_id: 1, created_at: "2018-03-26 21:47:27", updated_at: "2018-03-26 21:47:27", city: "New York", state: "New York", country: "USA">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Trip::ActiveRecord_Relation (0.73ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+
+

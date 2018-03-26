@@ -5,4 +5,10 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :update, :show]
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :trips, only: [:index, :update, :show, :create]
+    end
+  end
 end
