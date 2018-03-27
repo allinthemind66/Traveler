@@ -11,4 +11,11 @@ Rails.application.routes.draw do
       resources :trips, only: [:index, :update, :show, :create]
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:index, :update, :show, :create]
+    end
+  end
+
 end
