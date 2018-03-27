@@ -11,7 +11,7 @@ class Api::V1::TripsController < ApplicationController
 
   def create
     @trip = Trip.create(trip_params)
-    
+
   end
 
   private
