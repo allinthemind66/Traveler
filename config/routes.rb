@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :trips, only: [:index, :update, :show, :create]
+      get '/trips/:id/events', to: 'trips#events'
     end
   end
 

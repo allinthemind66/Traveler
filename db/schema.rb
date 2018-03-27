@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180327202106) do
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id", default: 1
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "city"

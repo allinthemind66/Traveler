@@ -10,6 +10,11 @@ class Api::V1::TripsController < ApplicationController
     render json: @trip
   end
 
+  def events
+    trip = Trip.find(params[:id])
+    render json: trip.events
+  end
+
   def create
     @trip = Trip.create(trip_params)
 
