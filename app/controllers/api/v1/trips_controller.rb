@@ -6,7 +6,8 @@ class Api::V1::TripsController < ApplicationController
   end
 
   def show
-
+    @trip = Trip.find(params[:id])
+    render json: @trip
   end
 
   def create
