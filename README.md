@@ -1,24 +1,15 @@
-# README
+## Traveler
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend repository for Traveler, a web app that helps you organize a trip or vacation by places you will visit, all in a very stylish manner. Create a trip, and then start adding landmarks, restaurants, bars, and other places you would like to go to.
 
-Things you may want to cover:
+## Motivation
 
-* Ruby version
+In creating this app, I wanted to help keep your travel itinerary all in one place. Partly inspired by the New York Times weekly travel guide 36 hours, I thought it would be helpful to create your own travel itinerary and make organizing your trip all the more easier.
 
-* System dependencies
+## Demo Video
+https://drive.google.com/file/d/1UVb88Zmxip1VkYEaFU5dcW9mmjfiKWTi/view?usp=sharing
 
-* Configuration
+## Tech/framework used
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<b>Built with</b>
+- [Rails](https://rubyonrails.org/)
